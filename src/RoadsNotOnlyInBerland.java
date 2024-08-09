@@ -3,7 +3,7 @@ import java.io.*;
 
 // dsu practice
 
-public class Roads {
+public class RoadsNotOnlyInBerland {
     static int[] parents;
     static ArrayList<int[]> unusedRoads = new ArrayList<int[]>();
 
