@@ -1,3 +1,5 @@
+package USACO.silver.finished;
+
 import java.io.*;
 
 public class WormholeSort {
@@ -47,7 +49,7 @@ public class WormholeSort {
         }
 
         PrintWriter out = new PrintWriter("wormsort.out");
-        out.println(l - 1);
+        out.println(l - 1 == maxWidth ? -1 : l - 1);
         in.close();
         out.close();
     }
@@ -66,6 +68,7 @@ public class WormholeSort {
             }
         }
 
+        // check if the parents are all the same
         for (int c = 0; c < n; c++) {
             if (find(c) != find(cows[c])) {
                 return false;
