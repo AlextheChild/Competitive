@@ -1,36 +1,36 @@
-import java.util.*;
 import java.io.*;
 
 public class WormholeSort {
-    static ArrayList<Edge>[] edgeList;
+    static int n;
+    static int[] cows;
+    static int[][] wormholes;
 
-    @SuppressWarnings("unchecked")
+    static int[] parents;
+
+    // cows can be sorted if every cow is connected to where they should be
+
     public static void main(String[] args) throws Exception {
-        // ! locations are 1-indexed
-        // ! fucking DSU
-
         BufferedReader in = new BufferedReader(new FileReader(new File("wormsort.in")));
         String[] nm = in.readLine().split(" ");
-        int n = Integer.parseInt(nm[0]);
+        n = Integer.parseInt(nm[0]);
         int m = Integer.parseInt(nm[1]);
         String[] cowLine = in.readLine().split(" ");
-        int[] cows = new int[n];
+        cows = new int[n];
         for (int i = 0; i < n; i++) {
             cows[i] = Integer.parseInt(cowLine[i]) - 1;
         }
-        edgeList = new ArrayList[m];
-        for (int i = 0; i < m; i++) {
-            edgeList[i] = new ArrayList<Edge>();
-        }
+        wormholes = new int[m][3];
         int maxWidth = 0;
         for (int i = 0; i < m; i++) {
             String[] line = in.readLine().split(" ");
             int from = Integer.parseInt(line[0]) - 1;
             int to = Integer.parseInt(line[1]) - 1;
             int width = Integer.parseInt(line[2]);
-            maxWidth = width > maxWidth ? width : maxWidth;
-            edgeList[from].add(new Edge(to, width));
-            edgeList[to].add(new Edge(from, width));
+
+            int[] wormhole = { from, to, width };
+            wormholes[i] = wormhole;
+
+            maxWidth = Math.max(maxWidth, width);
         }
 
         // binary search on width
@@ -38,31 +38,56 @@ public class WormholeSort {
         int r = maxWidth;
         while (l <= r) {
             int mid = l + ((r - l) / 2);
+
             if (check(mid)) {
-                r = mid - 1;
-            } else {
                 l = mid + 1;
+            } else {
+                r = mid - 1;
             }
         }
 
         PrintWriter out = new PrintWriter("wormsort.out");
-        out.println();
+        out.println(l - 1);
         in.close();
         out.close();
     }
 
+    // use dsu to check if everything is connected
     public static boolean check(int width) {
-        // cows can be sorted if every cow is connected through the tree to where they
-        // should be
-        return false;
+        parents = new int[n];
+        for (int i = 0; i < n; i++) {
+            parents[i] = i;
+        }
+
+        // connect everything
+        for (int[] w : wormholes) {
+            if (w[2] >= width) {
+                union(w[0], w[1]);
+            }
+        }
+
+        for (int c = 0; c < n; c++) {
+            if (find(c) != find(cows[c])) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
-    static class Edge {
-        int to, width;
+    public static int find(int node) {
+        if (parents[node] == node) {
+            return node;
+        } else {
+            return parents[node] = find(parents[node]);
+        }
+    }
 
-        public Edge(int to, int width) {
-            this.to = to;
-            this.width = width;
+    public static void union(int a, int b) {
+        int parentA = find(a);
+        int parentB = find(b);
+        if (parentA != parentB) {
+            parents[parentB] = parentA;
         }
     }
 }

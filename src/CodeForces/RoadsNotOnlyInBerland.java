@@ -3,8 +3,6 @@ package CodeForces;
 import java.util.*;
 import java.io.*;
 
-// dsu practice
-
 public class RoadsNotOnlyInBerland {
     static int[] parents;
     static ArrayList<int[]> unusedRoads = new ArrayList<int[]>();
