@@ -32,20 +32,6 @@ public class BreedCounting {
             }
         }
 
-        // for (int i : hPrefix) {
-        // System.out.print(i + " ");
-        // }
-        // System.out.println();
-
-        // for (int i : gPrefix) {
-        // System.out.print(i + " ");
-        // }
-        // System.out.println();
-
-        // for (int i : jPrefix) {
-        // System.out.print(i + " ");
-        // }
-
         for (int i = 0; i < q; i++) {
             String[] line = in.readLine().split(" ");
             int start = Integer.parseInt(line[0]) - 1;
