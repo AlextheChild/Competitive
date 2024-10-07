@@ -2,7 +2,6 @@ import java.util.*;
 import java.io.*;
 
 public class IrisAndGameOnTheTree {
-
     static ArrayList<Edge>[] edgeList;
 
     public static void main(String[] args) throws Exception {
