@@ -1,4 +1,4 @@
-package USACO.bronze.finished.betaHasNot;
+package USACO.bronze.finished.guideHasNot;
 
 import java.util.*;
 import java.io.*;

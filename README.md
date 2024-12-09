@@ -1,1 +1,0 @@
-We grinding for plat babyyyyy
