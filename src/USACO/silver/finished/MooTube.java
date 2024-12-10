@@ -3,7 +3,7 @@ package USACO.silver.finished;
 import java.util.*;
 import java.io.*;
 
-public class MooTube {
+public class Mootube {
     static ArrayList<Edge>[] edgeList;
 
     static int minRelevance;
