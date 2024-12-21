@@ -8,7 +8,7 @@ public class CircularBarn {
         PrintWriter out = new PrintWriter("cbarn.out");
         int n = Integer.parseInt(in.readLine());
 
-        out.println();
+        out.println(n);
 
         in.close();
         out.close();
