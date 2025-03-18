@@ -1,3 +1,4 @@
+package USACO.silver.bad;
 import java.io.*;
 import java.util.ArrayList;
 

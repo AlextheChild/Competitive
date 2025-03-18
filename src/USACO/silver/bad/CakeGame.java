@@ -1,3 +1,4 @@
+package USACO.silver.bad;
 import java.util.*;
 import java.io.*;
 
