@@ -1,3 +1,5 @@
+package USACO.silver.bad;
+
 import java.io.*;
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,7 +20,7 @@ public class TheBestLineup {
                 a[i] = Integer.parseInt(aList[i]);
                 aSorted[i] = Integer.parseInt(aList[i]);
             }
-            boolean moved = false;
+            // boolean moved = false;
 
             Arrays.sort(aSorted, Collections.reverseOrder());
 
