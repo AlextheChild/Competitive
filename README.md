@@ -11,6 +11,6 @@
 ## Old Comp Problems: 
  - Every problem from 2024-2025 season
 
-# PDFs: 
+# PDFs
  - https://darrenyao.com/usacobook/java.pdf
  - https://cses.fi/book/book.pdf
